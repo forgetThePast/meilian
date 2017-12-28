@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美联—发现全球独立设计，全球奢侈品购物网站,奢侈品网购，正品折扣,尽在美联购物</title>
+	<link rel="stylesheet" href="../dist/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/dior.css">
+	<link rel="shortcut icon" href="../favicon.ico">
+	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../dist/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/language/zh_CN.js"></script>
+</head>
+<body>
+	
+	<div class="loginTop nav">
+		<div class="w" style="height: 146px;">
+			<img src="../img/logo.png" alt="">
+		</div>
+	</div>
+
+	<div class="loginArea">
+		<div class="w">
+			<img src="../img/loginbg.jpg" alt="" class="bg">
+			<div class="loginInput">
+				<h3>登录美联</h3>
+				<form id="defaultForm" class="clearfix " style="width: 298px;padding-top: 25px;">
+                 
+                        <div class="form-group">
+						  
+						    <div class="input-group">
+						      <div class="input-group-addon input-group-addon1"></div>
+						      <input type="text" class="form-control" id="username" name="email" placeholder="请输入账号/邮箱">
+						      
+						    </div>
+						</div>
+                        
+                          <div class="form-group">
+						  
+						    <div class="input-group">
+						      <div class="input-group-addon input-group-addon3"></div>
+						      <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+						      
+						    </div>
+						</div>
+ 
+				</form>
+				<div class="member_form_btn">
+					<button id="validateBtn">登录</button>
+				</div>
+				<div class="otherLogin">
+					<div class="line"></div>
+					<h4>其他登录方式</h4>
+				</div>
+				<div class="type">
+					<a href="javascript:;"><span class="weixin"></span></a>
+					<a href="javascript:;"><span class="sina"></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="w page">
+			<ul>
+				<li class="first">100%正品保证</li>
+				<li class="second">7天无忧退货</li>
+				<li class="last">九年专注,品质保障</li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script src="../js/index.js"></script>
+<script >
+	$(function(){
+		ML.login && ML.login.init();
+	})
+</script>
+</html>

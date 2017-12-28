@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美联—发现全球独立设计，全球奢侈品购物网站,奢侈品网购，正品折扣,尽在美联购物</title>
+	<link rel="stylesheet" href="../dist/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/dior.css">
+	<link rel="shortcut icon" href="../favicon.ico">
+	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../dist/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/language/zh_CN.js"></script>
+
+</head>
+<body>
+	
+	<div class="loginTop nav">
+		<div class="w" style="height: 146px;">
+			<img src="../img/logo.png" alt="">
+		</div>
+	</div>
+	
+	<div class="loginArea">
+		<div class="w">
+			<img src="../img/loginbg.jpg" alt="" class="bg">
+			<div class="loginInput">
+				<h3>注册美联账户</h3>
+				<form id="defaultForm" class="clearfix " style="width: 298px;padding-top: 25px;">
+                 
+                        <div class="form-group">
+						  
+						    <div class="input-group">
+						      <div class="input-group-addon input-group-addon1"></div>
+						      <input type="text" class="form-control" id="username" name="email" placeholder="请输入账号/邮箱">
+						      
+						    </div>
+						</div>
+                          <div class="form-group">
+                            
+                           <div class="input-group" style="width: 100%;">
+						      
+						     <div class="fl" style="width: 60%;">
+						     	 <input type="text" class="form-control" id="code" name="code1" placeholder="请输入验证码">
+						     </div>
+						      <div class="input-group-addon fl " style="padding: 0;background: none;margin-left: 30px;"><img id="remoteimg" src="" alt="" style="height: 32px;cursor: pointer"></div>
+						    </div>
+                         </div>
+ 
+                          <div class="form-group">
+						  
+						    <div class="input-group">
+						      <div class="input-group-addon input-group-addon3"></div>
+						      <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+						      
+						    </div>
+						</div>
+ 
+                          <div class="form-group">
+						  
+						    <div class="input-group">
+						      <div class="input-group-addon input-group-addon4"></div>
+						      <input type="password" class="form-control" id="remarkpassword" name="confirmPassword" placeholder="再次输入密码">
+						      
+						    </div>
+						</div>
+				</form>
+				<div class="member_form_btn" style="cursor: pointer;">
+					<button id="validateBtn">注册</button>
+				</div>
+
+				<a href="login.html" class="fr " style="margin-top: 20px;" >已注册？<span class="blue">登录</span></a>
+				
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="w page">
+			<ul>
+				<li class="first">100%正品保证</li>
+				<li class="second">7天无忧退货</li>
+				<li class="last">九年专注,品质保障</li>
+			</ul>
+		</div>
+
+	</div>
+	<p style="height: 100px;background: #414141; text-align: center;font-size: 20px;color: #666;line-height: 100px;">
+		copyright&copy;美联
+	</p>
+
+
+</body>
+<script src="../js/index.js"></script>
+<script >
+	$(function(){
+		ML.register && ML.register.init();
+	})
+</script>
+</html>

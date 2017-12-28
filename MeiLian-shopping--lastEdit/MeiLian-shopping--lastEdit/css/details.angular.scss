@@ -1,0 +1,169 @@
+.content{
+	.shop{
+		.sider{
+			width: 55px;
+			height: 300px;
+			margin-left: 95px;
+			margin-top: 70px;
+			ul{
+				width: 55px;
+				height: 100%;
+				
+				li{
+					margin-top: 7px;
+					img{
+						width: 52px;
+						height: 62px;
+						&.sel{
+							border:1px solid #e8e8e8;
+						}
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		.big{
+			img{
+				width: 380px;
+				height: 460px;
+			}
+			margin-left: 40px;
+		}
+		.details{
+			text-align: left;
+			margin-top: 70px;
+			margin-left: 85px;
+			h3{
+			    font-size: 24px;
+			   	margin-bottom:20px;
+			    color: #333;
+			    max-width: 361px;
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			}
+			p{
+				margin-bottom: 20px;
+			}
+			p.info{
+				
+			    font-size: 14px;
+			   
+			    max-width: 341px;
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			}
+			p.price{
+			    font-size: 18px;
+				font-weight: bold;
+				
+			}
+			p.colors{
+				.col{
+					width: 25px;
+					height: 25px;
+					border:1px solid #333;
+					border-radius: 3px;
+					margin-left: 30px;
+				}
+			}
+			p.size{
+				margin-bottom: 5px;
+				button{
+					width: 54px;
+					height: 30px;
+					margin-left:30px;
+					border-radius: 3px;
+					background: #fff;
+					color: #333;
+					border:1px solid #333;
+					cursor: pointer;
+					&:nth-child(2){
+						background: #333;
+						color: #fff;
+					}
+					&:nth-child(1){
+						background: #fff;
+						color: #333;
+					}
+				}	
+			}
+			button{
+				
+			}
+			div{
+				height: 50px;
+				line-height: 50px;
+				width: 440px;
+				.btn{
+				width:152px;
+	    		height: 45px;
+	    	    border: none;
+			    // padding: 0;
+			    // margin: 0;
+			    outline-style: none;
+			    background: none;
+			    font-size: 14px;
+			    text-align: center;
+			    color: #fff;
+			    background: #333;
+			    border-radius: 3px;
+				}
+				.shou,.fen{
+					width: 43px;
+					height: 43px;
+					background: url(../img/shou.gif) no-repeat;
+					border:1px solid #e8e8e8;
+				}
+				.tit{
+					width: 100px;
+					.shou{
+						background-position:0 -13px; 
+				}
+					.fen{
+						background-position: 0 -56px;
+					}
+				}
+			}
+
+		}
+	}
+}
+.titles{
+	background:#fff;
+	a{
+		height: 70px;
+		width: 110px;
+		line-height: 70px;
+		text-align: center;
+		color: #505050;
+		font-size: 14px;
+		&.v{
+			background:#505050;
+			color: #fff;
+		}
+	}
+}
+.table{
+	width: 80%;
+	margin:0 auto; 
+		tr{
+		border-bottom: 1px solid #e8e8e8;
+		td{
+			height: 52px;
+			text-align: left;
+			&:nth-child(2n+1){
+				color: #333;
+				font-weight: bold;
+			}
+
+		}
+	}
+}
+span.story{
+	white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+
+}

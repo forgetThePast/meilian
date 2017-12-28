@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美联—发现全球独立设计，全球奢侈品购物网站,奢侈品网购，正品折扣,尽在美联购物</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/dior.css">
+	<link rel="stylesheet" href="../css/details.angular.css">
+	<link rel="shortcut icon" href="../favicon.ico">
+	<script type="text/javascript" src="../js/angular.min.js"></script>
+	<script src="../js/jquery-1.12.4.min.js"></script>
+</head>
+<body style="background: #f5f5f5">
+	<div class="top">
+		<div class="w">
+			<p class="fr">
+				<a href="login.html">登录</a>
+				<a href="register.html">注册</a>
+				<a href="shopping.html"><em></em>购物袋(0)</a>
+			</p>
+		</div>
+	</div>
+
+	<div class="w banner">
+		<div class="logo"><img src="../img/logo.png" alt=""></div>
+		<div class="searchArea ">
+			<input type="text" placeholder="请输搜索关键字" class="fl"> <span class="fr"></span>
+		</div>
+	</div>
+
+	<div class="nav">
+		<div class="w navbar">
+			<ul class="navList">
+				<li class="item fl">
+					<a href="../index.html">首页</a>
+
+				</li>
+				<li class="item fl">
+					<a href="nv.html">女士</a>
+					
+				</li> 
+				<li class="item fl">
+					<a href="javascript:;">男士</a>
+				</li>
+				<li class="item fl">
+					<a href="javascript:;">品牌</a>
+				</li>
+			</ul>
+		</div>
+		<div class="itemList">
+			<ol class="w">
+				
+			</ol>
+		</div>
+	</div>
+
+	<div class="content " ng-app="myApp" ng-controller="myCtrl">
+		
+		<div class="shop">
+			<!-- 详情开始 -->
+			<div class="w clearfix" style="border:solid 1px #e8e8e8;background: #fff;" >
+				<div class="sider fl">
+					<ul>
+						<li ng-repeat="item in details[param].sider">
+							<img ng-src="{{item}}" alt="">
+						</li>
+					</ul>
+				</div>
+				<div class="big fl">
+					<img ng-src="{{details[param].sider[0]}}" alt="">
+				</div>
+				<div class="details fl">
+					<h3>{{details[param].brand}}</h3>
+					<p class="info">{{details[param].info}}</p>
+					<p class="price">{{details[param].price}}</p>
+					<p class="colors"><span>颜色</span><input class="col" type="text" disabled="disabled" style="background: {{details[param].color}};"></p>
+					<p class="size" ><span>尺码</span><button ng-repeat="i in details[param].size">{{i}}</button></p>
+					<div style="text-decoration: underline;margin-left: 54px;">查看尺码说明</div>
+					<div>
+						<button class="btn" style="margin-right: 20px;">立即购买</button><button class="btn" style="background:#c53f40;">加入购物袋</button>  <div class="fr tit"><div class="shou fl"></div> <div class="fen fr"></div></div>
+					</div>
+					<div><span style="margin-right: 30px;">到货时间</span><span>{{details[param].time}}</span></div>
+				</div>
+			</div>
+			<div class="w titles" style="height: 70px;">
+				<a href="javascript:;" class="fl v">商品详情</a>
+				<a href="javascript:;" class="fl">商品尺寸</a>
+				<a href="javascript:;" class="fl">配送及售后</a>
+			</div>
+			<div class="favorite w" style="background: #fff;">
+				<div class="top">
+					<h3 style="background: url(../img/goods.png) no-repeat left center;height: 100%;"></h3>
+				</div>
+
+				<div class="showFavorite" >
+					<table class="table">
+						<tr>
+							<td>美联编号</td>
+							<td>{{details[param].num}}</td>
+							<td>货号</td>
+							<td>{{details[param].goosNum}}</td>
+							<td>产地</td>
+							<td>{{details[param].address}}</td>
+							<td>年份</td>
+							<td>{{details[param].year}}</td>
+						</tr>
+						<tr>
+							<td>适用人群</td>
+							<td>{{details[param].fit}}</td>
+							<td>颜色</td>
+							<td>{{details[param].color1}}</td>
+							<td>季节</td>
+							<td>{{details[param].season}}</td>
+							<td>系列</td>
+							<td>{{details[param].serise}}</td>
+						</tr>
+						<tr>
+							<td>材质</td>
+							<td colspan="7">{{details[param].mateirs}}</td>
+							
+						</tr>
+						<tr>
+							<td>商品描述</td>
+							<td colspan="7">{{details[param].desc}}</td>
+							
+						</tr>
+					</table>
+				</div>
+				
+			</div>
+
+			<div class="favorite w" style="background: #fff;">
+					
+				<div class="top">
+					<h3 style="background: url(../img/story.png) no-repeat left center;height: 100%;"></h3>
+				</div>
+
+				<div class="showFavorite" style="height: 270px;">
+					<span class="story fl" style="width: 63%;font-size:14px;color:#999;text-align: left;margin-top:70px;padding:0 30px;line-height: 20px;border-right: 1px solid #e8e8e8;">{{details[param].story}}</span>
+					<div style="width: 270px;height: 110px;margin-top: 58px;" class="fl">
+						<img ng-src="{{details[param].logoBg}}" alt="" style="width:170px;height: 52px;">
+						<p style="width: 125px;height: 40px;border:1px solid #e8e8e8;line-height: 40px;text-align: center;margin:20px auto 0">查看更多品牌</p>
+					</div>
+				</div>
+			</div>
+			<div class="favorite w" style="background: #fff;">
+					
+				<div class="top">
+					<h3 style="background: url(../img/detail.png) no-repeat left center;height: 100%;"></h3>
+				</div>
+
+				<div class="showFavorite" >
+					<ul class="clearfix">
+						<li ng-repeat="item in details[param].sider" style="width: 485px;height: 582px;margin-right: 15px;margin-top: 20px;">
+							<img ng-src="{{item}}" alt="" style="width: 485px;height: 582px;">
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="favorite w" style="background: #fff;">
+				<div class="top">
+					<h3 style="background: url(../img/guess.png) no-repeat left center;height: 100%;"></h3>
+				</div>
+
+
+				<div class="showFavorite" >
+					<ul class="clearfix">
+						<li>
+							<img src="../img/cai1.JPG" alt="">
+							<p>Petite Studio</p>
+							<p>混合羊毛 女士 西装套装</p>
+							<p>￥1516.00</p>
+						</li>
+						<li>
+							<img src="../img/cai2.JPG" alt="">
+							<p>Patek Philippe 百达翡丽</p>
+							<p>CALATRAVA系列 鳄鱼皮 男士机...</p>
+							<p>￥18832.00</p>
+						</li>
+						<li>
+							<img src="../img/cai3.JPG" alt="">
+							<p>O.YANG</p>
+							<p>【O.YANG专卖店】英国O.YANG...</p>
+							<p>￥612.00</p>
+						</li>
+						<li>
+							<img src="../img/cai4.JPG" alt="">
+							<p>Frankie Morello 弗兰基.莫雷诺</p>
+							<p>WIFI眼 男士卫衣</p>
+							<p>￥595.00</p>
+						</li>
+					</ul>
+					<div class="pre_btn"></div>
+					<div class="next_btn"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- over -->
+		
+	</div>
+
+
+	<div class="footer mr20">
+		<div class="w page">
+			<ul>
+				<li class="first">100%正品保证</li>
+				<li class="second">7天无忧退货</li>
+				<li class="last">九年专注,品质保障</li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script src="../js/index.js"></script>
+<script >
+	$(function(){
+		ML.details && ML.details.init();
+	})
+</script>
+<script type="text/javascript" src="../js/details-angular.js"></script>
+<script type="text/javascript" >
+	$(function(){
+		$(".sider ul li img:first").addClass('sel');
+	})
+</script>
+</html>
