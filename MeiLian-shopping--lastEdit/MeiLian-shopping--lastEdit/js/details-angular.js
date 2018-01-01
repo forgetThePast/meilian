@@ -1,4 +1,5 @@
 var app = angular.module("myApp",[]);
+
 app.controller("myCtrl",["$scope",function($scope){
 
 	$scope.str = window.location.href;
@@ -1618,6 +1619,25 @@ app.controller("myCtrl",["$scope",function($scope){
 	
 
 
+	$(".btnAdd").on('click',function(){
+		var str = window.location.href;
+		var info = str.split("=")[1].split(".")[0];
+		
+		var Date = Date || {};
+		Date.cartId = info;
+		Date.goodsName = $scope.details[info].brand;
+		Date.price = $scope.details[info].price;
+		$.ajax({
+			url :MLurl+"/sellmall/cart",
+			type:"post",
+			data:JSON.stringify(Date),
+			success:function(resp){
+				if(resp.code=="-2"){
+					alert('登录已经过期，请重新登录');
+				}
+			}
+		})
 
+	})
 	
 }])

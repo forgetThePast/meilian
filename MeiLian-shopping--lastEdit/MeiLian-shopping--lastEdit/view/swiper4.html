@@ -8,50 +8,47 @@
 	<link rel="stylesheet" href="../css/dior.css">
 	<link rel="shortcut icon" href="../favicon.ico">
 	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script type="text/javascript" src="../dist/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/language/zh_CN.js"></script>
 </head>
-<body>
-	<div class="top">
-		<div class="w">
-			<p class="fr">
-				<a href="login.html">登录</a>
-				<a href="register.html">注册</a>
-				<a href="shopping.html"><em></em>购物袋(0)</a>
-			</p>
-		</div>
-	</div>
+<body ng-app="app" >
 
-	<div class="w banner">
-		<div class="logo"><img src="../img/logo.png" alt=""></div>
-		<div class="searchArea ">
-			<input type="text" placeholder="请输搜索关键字" class="fl"> <span class="fr"></span>
-		</div>
-	</div>
+<div app-head></div>
 
-	<div class="nav">
-		<div class="w navbar">
-			<ul class="navList">
-				<li class="item fl">
-					<a href="../index.html">首页</a>
-
-				</li>
-				<li class="item fl">
-					<a href="javascript:;">女士</a>
-					
-				</li> 
-				<li class="item fl">
-					<a href="javascript:;">男士</a>
-				</li>
-				<li class="item fl">
-					<a href="javascript:;">品牌</a>
-				</li>
-			</ul>
-		</div>
-		<div class="itemList">
-			<ol class="w">
-				
-			</ol>
-		</div>
+<div class="w banner">
+	<div class="logo"><img src="../img/logo.png" alt=""></div>
+	<div class="searchArea ">
+		<input type="text" placeholder="请输搜索关键字" class="fl"> <span class="fr"></span>
 	</div>
+</div>
+
+<div class="nav">
+	<div class="w navbar">
+		<ul class="navList">
+			<li class="item fl">
+				<a href="../index.html">首页</a>
+
+			</li>
+			<li class="item fl">
+				<a href="javascript:;">女士</a>
+
+			</li>
+			<li class="item fl">
+				<a href="javascript:;">男士</a>
+			</li>
+			<li class="item fl">
+				<a href="javascript:;">品牌</a>
+			</li>
+		</ul>
+	</div>
+	<div class="itemList">
+		<ol class="w">
+
+		</ol>
+	</div>
+</div>
 
 	<div class="bgGray" style="padding-top: 20px;">
 	

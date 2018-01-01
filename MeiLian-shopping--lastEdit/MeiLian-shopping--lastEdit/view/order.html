@@ -7,13 +7,23 @@
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/common.css">
 	<link rel="stylesheet" href="../css/dior.css">
-	
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
 	<link rel="shortcut icon" href="../favicon.ico">
 	<script src="../js/jquery-1.12.4.min.js"></script>
 	<script src="../js/angular.min.js"></script>
 	<script type="text/javascript" src="../dist/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../dist/validator/dist/js/bootstrapValidator.min.js"></script>
 	<script type="text/javascript" src="../dist/validator/dist/js/language/zh_CN.js"></script>
+	<script type="text/javascript" src="../js/login.js"></script>
+	<style>
+		.text{
+			text-align: left;
+			padding: 0 0 5px 0;
+		}
+		a.edit,a.remove{
+			color: #CCC;
+		}
+	</style>
 </head>
 <body ng-app="app" ng-controller="shopCtrl">
 	<div app-head></div>
@@ -52,17 +62,18 @@
 	</div>
 
 	<div class="shop">
-		
-		<div class="w" style="border:solid 1px #e8e8e8;" >
-			<div ng-show="!list.length" style="height: 362px;">
-				<div class="cartNone"></div>
-				<p class="cartTip">购物车内暂时没有商品</p>
-				<p ng-show="isLogin">登录后将显示您之前加入的商品</p>
-				<div class="member_form_btn">
-						<button style="margin-right: 20px;" ng-show=isLogin><a href="login.html" style="color: #fff;" >登录</a></button>
-						<button><a href="../index.html" style="color: #fff;">随便逛逛</a></button>
+		<div class="w">
+			
+			<h3 style="text-align: left;border-bottom: 1px solid #333;height: 40px;line-height: 40px;">收货地址</h3>
+			<div class="panel-body address-list"> 
+				<div class="address-item add" style="margin: 20px 20px 0 0;width: 200px;float: left;padding: 5px 8px 2px;border: 3px dashed #ccc;cursor: pointer;"> 
+					<div class="address-new" style="padding: 6px;text-align: center;color: #ccc;"> <i class="fa fa-plus" style="font-size: 50px;line-height: 50px;"></i>
+					 <div class="text">使用新地址</div> 
+					</div> 
 				</div>
 			</div>
+		</div>
+		<div class="w" style="border:solid 1px #e8e8e8;" >
 			
 			<div class="tableHead" ng-show="list.length">
 				<table class="table ">
@@ -113,7 +124,7 @@
 							
 						</tr>
 						<tr>
-							<td colspan="5"><button class="btn btn-lg btn-danger" ><a href="order.html">提交订单</a></button></td>
+							<td colspan="5"><button class="btn btn-lg btn-danger">提交订单</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -176,7 +187,7 @@
 	<!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
-		<div class="modal-content">
+		<div class="modal-content" style="height: 500px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 					&times;
@@ -186,12 +197,40 @@
 				</h4>
 			</div>
 			<div class="modal-body">
-				在这里添加一些文本
+				<div class="container">
+				      <div class="row" style="margin-top: 20px;">
+				    	 <label for="">收货人：</label>
+			       		<input type="text" class="username" name="username" style="border:1px solid rgb(169, 169, 169);">
+				    </div>
+				    <div class="row" style="margin-top: 20px;">
+				       <label for="">选择省份：</label>
+				        <select class=" province" name="province"  >
+				        </select>
+					</div>
+				    <div class="row" style="margin-top: 20px;">
+				    	 <label for="">选择市：</label>
+			       		<select class=" city" name="city">
+			        	</select>
+				    </div>
+				    <div class="row" style="margin-top: 20px;">
+				    	 <label for="">选择县/区：</label>
+			       		<select class=" district" name="district" >
+			        	</select>
+				    </div>
+				     <div class="row" style="margin-top: 20px;">
+				    	 <label for="">详细地址：</label>
+			       		<input type="text" class="detailAddress" name="detailAddress" style="border:1px solid rgb(169, 169, 169);">
+				    </div>
+				     <div class="row" style="margin-top: 20px;">
+				    	 <label for="">联系电话：</label>
+			       		<input type="text" class="phone" name="phone" style="border:1px solid rgb(169, 169, 169);">
+				    </div>
+				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary">
+				<button type="button" class="btn btn-primary addressbtn">
 					提交
 				</button>
 			</div>
@@ -201,7 +240,7 @@
 <script src="../js/index.js"></script>
 <script >
 	$(function(){
-		ML.shop && ML.shop.init();
+		ML.order && ML.order.init();
 	})
 </script>
 <script type="text/javascript" src="../js/shopping.js"></script>

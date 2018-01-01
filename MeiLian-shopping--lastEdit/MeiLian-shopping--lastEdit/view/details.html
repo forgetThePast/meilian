@@ -8,21 +8,25 @@
 	<link rel="stylesheet" href="../css/dior.css">
 	<link rel="stylesheet" href="../css/details.angular.css">
 	<link rel="shortcut icon" href="../favicon.ico">
-	<script type="text/javascript" src="../js/angular.min.js"></script>
 	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script type="text/javascript" src="../dist/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/language/zh_CN.js"></script>
 </head>
-<body style="background: #f5f5f5">
-	<div class="top">
-		<div class="w">
-			<p class="fr">
-				<a href="login.html">登录</a>
-				<a href="register.html">注册</a>
-				<a href="shopping.html"><em></em>购物袋(0)</a>
-			</p>
-		</div>
+<body style="background: #f5f5f5" ng-app="myApp" ng-controller="myCtrl">
+<div class="top">
+	<div class="w">
+		<p class="fr">
+			<a href="login.html">登录</a>
+			<a href="register.html">注册</a>
+			<a href="shopping.html"><em></em>购物袋(0)</a>
+		</p>
 	</div>
+</div>
 
-	<div class="w banner">
+
+<div class="w banner">
 		<div class="logo"><img src="../img/logo.png" alt=""></div>
 		<div class="searchArea ">
 			<input type="text" placeholder="请输搜索关键字" class="fl"> <span class="fr"></span>
@@ -55,7 +59,7 @@
 		</div>
 	</div>
 
-	<div class="content " ng-app="myApp" ng-controller="myCtrl">
+	<div class="content " >
 		
 		<div class="shop">
 			<!-- 详情开始 -->
@@ -78,7 +82,7 @@
 					<p class="size" ><span>尺码</span><button ng-repeat="i in details[param].size">{{i}}</button></p>
 					<div style="text-decoration: underline;margin-left: 54px;">查看尺码说明</div>
 					<div>
-						<button class="btn" style="margin-right: 20px;">立即购买</button><button class="btn" style="background:#c53f40;">加入购物袋</button>  <div class="fr tit"><div class="shou fl"></div> <div class="fen fr"></div></div>
+						<button class="btn" style="margin-right: 20px;">立即购买</button><button class="btn btnAdd" style="background:#c53f40;">加入购物袋</button>  <div class="fr tit"><div class="shou fl"></div> <div class="fen fr"></div></div>
 					</div>
 					<div><span style="margin-right: 30px;">到货时间</span><span>{{details[param].time}}</span></div>
 				</div>

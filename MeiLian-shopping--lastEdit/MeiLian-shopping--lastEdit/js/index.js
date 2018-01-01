@@ -1,6 +1,22 @@
 var ML = ML || {} ;
 // 配置url
 var MLurl = "http://localhost:8080";
+
+// 加载头部信息
+angular.module('app',[]).directive("appHead",['$http',function($http){
+	return {
+		restrict:'A',
+		replace:true,
+		templateUrl:"template.html",
+		
+	}
+}]);
+// angular.module('app',[]).controller('mainCtrl', ['$scope', function($scope){
+//
+// }])
+
+
+
 ML.list = {
 	"女士":{
 		"包袋 Bags":["所有包袋","手提包 Totes","单肩包 Shoulder Bags","斜挎包 Messenger Bags","手拿包 Clutch Bags","双肩包 Travel Bags"],
@@ -82,10 +98,12 @@ ML.index = (function(self){
 			});
 
 			$('.specialItem img').click(function(event) {
-				window.location.href = "view/dior.html";
+				window.location.href = "dior.html";
 			});
 
 	};
+
+
 
 	var buildList = function(param){
 		
@@ -129,19 +147,34 @@ ML.index = (function(self){
 			// console.log($this);
 			if($this=="女士"){
 				$('.itemList li').click(function(){
-					window.location.href = "view/nv.html";
+					window.location.href = "nv.html";
 				})
 			}else if($this=="男士"){
 				$('.itemList li').click(function(){
-					window.location.href = "view/nan.html";
+					window.location.href = "nan.html";
 				})
 			}else if($this=="品牌"){
 				$('.itemList li').click(function(){
-					window.location.href = "view/brand.html";
+					window.location.href = "brand.html";
 				})
 			}
 			
 		})
+
+		var sessionItem = sessionStorage.getItem("token");
+		var data = {token:sessionItem}
+		$.ajax({
+			url:MLurl+"/common/auth",
+ 			type:"post",
+ 			dataType:"json",
+ 			contentType: "application/json;charset=UTF-8",
+ 			data:JSON.stringify(data),
+ 			success:function(resp){
+ 				console.log(resp)
+ 			}
+		})
+
+		
 		
 	}
 	return self ;
@@ -222,7 +255,7 @@ ML.dior = (function(self){
 		
 	}
 	return self ;
-})(ML.dior||{})
+})(ML.dior||{});
 
 ML.details = (function(self){
 	var buildList = function(param){
@@ -291,7 +324,7 @@ ML.details = (function(self){
 })(ML.details||{});
 
 
-ML.register = (function(selft){
+ML.register = (function(self){
 	$('#defaultForm').bootstrapValidator({
  //        live: 'disabled',
          // message: 'This value is not valid',
@@ -309,6 +342,16 @@ ML.register = (function(selft){
                         },
                      emailAddress: {
                          message: '请检查邮箱是否正确！'
+                     }
+                 }
+             },
+              username: {
+                 validators: {
+                 	 notEmpty: {
+                            message: '用户名不能为空！'
+                        },
+                     emailAddress: {
+                         message: 'nothing！'
                      }
                  }
              },
@@ -350,9 +393,11 @@ ML.register = (function(selft){
 
 	// 获取验证码
 	var getCode = function(){
+
 			var xhr = new XMLHttpRequest();    
 		    xhr.open("get", MLurl+"/common/account/getValidateCode", true);
 		    xhr.responseType = "blob";
+		   	xhr.withCredentials = true;
 		    xhr.onload = function() {
 		        if (this.status == 200) {
 		            var blob = this.response;
@@ -364,9 +409,9 @@ ML.register = (function(selft){
 		　　　　　　　$("#remoteimg").attr("src",window.URL.createObjectURL(blob));
 			 } }
 			 xhr.send()
-	}
+	};
 	self.init = function(){
-	
+
 		getCode();
 		$("#remoteimg").on("click",function(){
 			getCode();
@@ -376,15 +421,28 @@ ML.register = (function(selft){
          	$('#defaultForm').bootstrapValidator('validate');
          	if(!$('.form-group').hasClass('has-error')){
          		var Data = Data || {};
-         		Data.accountCode=$("#username").val();
+         		Data.accountCode=$("#useracount").val();
          		Data.password = $("#password").val();
          		Data.validateCode = $("#code").val();
+         		Data.accountName = $("#username").val();
+         		$.ajaxSetup({
+				  xhrFields: {
+				    withCredentials: true
+				  }
+				});
          		$.ajax({
          			url:MLurl+"/common/account",
-         			dataType:"json",
-         			data:Data,
+         			type:"post",
+         			// dataType:"json",
+         			contentType: "application/json;charset=UTF-8",
+         			data:JSON.stringify(Data),
+
          			success:function(resp){
-         				alert('注册成功')
+         				if(resp&&resp.code=="0"){
+         					alert("恭喜你,注册成功!")
+         				}else{
+
+         				}
          			}
          		})
          	}
@@ -392,7 +450,7 @@ ML.register = (function(selft){
 	    })
 	}
 	return self;
-})(ML.register||{})
+})(ML.register||{});
 ML.login = (function(self){
 	$('#defaultForm').bootstrapValidator({
  //        live: 'disabled',
@@ -427,7 +485,7 @@ ML.login = (function(self){
          }
      });
 	self.init = function(){
-		$('#validateBtn').click(function() {
+		$('.member_form_btn').click(function() {
          	$('#defaultForm').bootstrapValidator('validate');
          	if(!$('.form-group').hasClass('has-error')){
          		var data = data || {};
@@ -436,14 +494,115 @@ ML.login = (function(self){
          		$.ajax({
          			url:MLurl+"/common/auth",
          			type:"post",
-         			dataType:"jsonp",
-         			data:data,
+         			dataType:"json",
+         			contentType: "application/json;charset=UTF-8",
+         			data:JSON.stringify(data),
          			success:function(resp){
-         				console.log(resp)
+         				if(resp&&resp.code=="-1"){
+         					alert('该账号不存在')
+         				}else if(resp&&resp.code=="0"){
+         					
+         					sessionStorage.setItem("token", resp.data.token);
+         					location.href='index.html';
+         				}
          			}
          		})
          	}
 	    })
 	}
 	return self;
-})(ML.login||{})
+})(ML.login||{});
+
+
+ML.shop = (function(self){
+	
+	self.init = function(){
+		$(".table input[type='checkbox']").prop('checked',true)
+		$(".table tbody tr td div input").click(function(){
+			if($(".table tbody tr td div input").prop('checked')){
+				$(".selectAll").prop("checked","checked")
+			}else{
+				$(".selectAll").prop("checked",false)
+			}
+		})
+	}
+	return self;
+})(ML.shop||{});
+
+
+// 订单
+ML.order = (function(self){
+	
+	self.init = function(){
+		$(".table input[type='checkbox']").prop('checked',true)
+		$(".table tbody tr td div input").click(function(){
+			if($(".table tbody tr td div input").prop('checked')){
+				$(".selectAll").prop("checked","checked")
+			}else{
+				$(".selectAll").prop("checked",false)
+			}
+		})
+
+		$('.address-item ').click(function(){
+			$('#myModal').modal('show')
+		})
+		addressInit('province', 'city', 'district', '安徽', '合肥市', '蜀山区');
+
+		$('.addressbtn').click(function(){
+			if($('.detailAddress').val()==""){
+				alert("请填写详细地址")
+			}
+			if($('.username').val()==""){
+				alert("请填写收件人")
+			}
+			if($('.phone').val()==""){
+				alert("请填写联系电话")
+			}
+			var Address = Address || {};
+			Address.province = $('.province').val();
+			Address.city = $('.city').val();
+			Address.district = $('.district').val();
+			Address.detailAddress = $('.detailAddress').val();
+			Address.username = $('.username').val();
+			Address.phone = $('.phone').val();
+			// Address.detailAddress = $('.detailAddress').val();
+			var str = JSON.stringify(Address)
+			sessionStorage.obj = str;
+			$('#myModal').modal('hide')
+		});
+
+
+		// 回填数据
+		var getSession = function(){
+			var addressData = JSON.parse(sessionStorage.obj);
+			return addressData;
+		} 
+		
+		console.log(getSession())
+		var addressData = getSession()
+		if(addressData){
+			$(".address-list").prepend('<div class="address-item active" style="margin: 20px 20px 0 0;width: 200px;float: left;padding: 5px 8px 2px;border: 3px dashed #ccc;cursor: pointer;height:95px;">'+ 
+					'<div class="address-new" style="padding: 6px;text-align: center;color: #ccc;">'+
+					'<div class="text" style="border-bottom:1px solid #ccc;">'+addressData["province"]+"  "+addressData["city"]+" "+addressData["detailAddress"]+'</div>'+
+					 '<div class="text">'+addressData["username"]+" ("+addressData["phone"]+" 收)"+'</div></div><div class="opa"></div></div>');
+
+
+		}
+
+		$('.address-list .active').hover(function(){
+			$(this).css('border-color',"red");
+			$(this).children('.opa').empty().html('<a class="edit" href="javascript:;" style="margin-right:20px">修改</a><a href="javascript:;" class="remove">删除</a>')
+		},function(){
+			$(this).css('border-color',"#ccc");
+			$(this).children('.opa').empty();
+		})
+		
+
+		$('.edit').click(function(){
+			// $('#myModal').modal('show')
+			alert("123")
+		})
+
+	}
+	return self;
+})(ML.order||{});

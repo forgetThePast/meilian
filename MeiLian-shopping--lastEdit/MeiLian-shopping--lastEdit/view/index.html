@@ -3,25 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>美联—发现全球独立设计，全球奢侈品购物网站,奢侈品网购，正品折扣,尽在美联购物</title>
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/index.css">
-	<link rel="shortcut icon" href="favicon.ico">
-	<script src="js/jquery-1.12.4.min.js"></script>
+	<link rel="stylesheet" href="../dist/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="shortcut icon" href="../favicon.ico">
+	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script type="text/javascript" src="../dist/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/language/zh_CN.js"></script>
 </head>
-<body>
-	<div class="top">
-		<div class="w">
-			<p class="fr">
-				<a href="view/login.html">登录</a>
-				<a href="view/register.html">注册</a>
-				<a href="view/shopping.html"><em></em>购物袋(0)</a>
-			</p>
-		</div>
-	</div>
+<body ng-app="app">
+	
+	<div app-head></div>
 
 	<div class="w banner">
-		<div class="logo"><img src="img/logo.png" alt=""></div>
+		<div class="logo"><img src="../img/logo.png" alt=""></div>
 		<div class="searchArea ">
 			<input type="text" placeholder="请输搜索关键字" class="fl"> <span class="fr"></span>
 		</div>
@@ -57,10 +56,10 @@
 		<div class="w">
 			<div class="box">
 				<ul class="imgList">
-					<li><a href="view/swiper4.html"><img src="img/1.jpg"  /></a></li>
-					<li><a href="view/swiper3.html"><img src="img/2.jpg" /></a></li>
-					<li><a href="view/swiper1.html"><img src="img/3.jpg"  /></a></li>
-					<li><a href="view/swiper2.html"><img src="img/4.jpg" /></a></li>
+					<li><a href="swiper4.html"><img src="../img/1.jpg"  /></a></li>
+					<li><a href="swiper3.html"><img src="../img/2.jpg" /></a></li>
+					<li><a href="swiper1.html"><img src="../img/3.jpg"  /></a></li>
+					<li><a href="swiper2.html"><img src="../img/4.jpg" /></a></li>
 					
 				</ul>
 				<div class="leftBtn"></div>
@@ -82,15 +81,15 @@
 	</div>
 	<div class="specialItem w clearfix">
 		<div class="leftBox fl">
-			<div><img src="img/11.jpg" alt=""></div>
-			<div class="mt12"><img src="img/33.jpg" alt=""></div>
+			<div><img src="../img/11.jpg" alt=""></div>
+			<div class="mt12"><img src="../img/33.jpg" alt=""></div>
 		</div>
 		<div class="midBox fl">
-			<div><img src="img/22.jpg" alt=""></div>
+			<div><img src="../img/22.jpg" alt=""></div>
 		</div>
 		<div class="rightBox fl">
-			<div><img src="img/44.jpg" alt=""></div>
-			<div class="mt12"><img src="img/55.jpg" alt=""></div>
+			<div><img src="../img/44.jpg" alt=""></div>
+			<div class="mt12"><img src="../img/55.jpg" alt=""></div>
 		</div>
 	</div>
 
@@ -108,15 +107,15 @@
 	</div>
 	<div class="specialItem w clearfix">
 		<div class="leftBox fl">
-			<div><img src="img/111.jpg" alt=""></div>
-			<div class="mt12"><img src="img/222.jpg" alt=""></div>
+			<div><img src="../img/111.jpg" alt=""></div>
+			<div class="mt12"><img src="../img/222.jpg" alt=""></div>
 		</div>
 		<div class="midBox fl">
-			<div><img src="img/333.jpg" alt=""></div>
+			<div><img src="../img/333.jpg" alt=""></div>
 		</div>
 		<div class="rightBox fl">
-			<div><img src="img/444.jpg" alt=""></div>
-			<div class="mt12"><img src="img/555.jpg" alt=""></div>
+			<div><img src="../img/444.jpg" alt=""></div>
+			<div class="mt12"><img src="../img/555.jpg" alt=""></div>
 		</div>
 	</div>
 
@@ -134,15 +133,15 @@
 	</div>
 	<div class="specialItem w clearfix">
 		<div class="leftBox fl">
-			<div><img src="img/12.jpg" alt=""></div>
-			<div class="mt12"><img src="img/13.jpg" alt=""></div>
+			<div><img src="../img/12.jpg" alt=""></div>
+			<div class="mt12"><img src="../img/13.jpg" alt=""></div>
 		</div>
 		<div class="midBox fl">
-			<div><img src="img/14.jpg" alt=""></div>
+			<div><img src="../img/14.jpg" alt=""></div>
 		</div>
 		<div class="rightBox fl">
-			<div><img src="img/15.jpg" alt=""></div>
-			<div class="mt12"><img src="img/16.jpg" alt=""></div>
+			<div><img src="../img/15.jpg" alt=""></div>
+			<div class="mt12"><img src="../img/16.jpg" alt=""></div>
 		</div>
 	</div>
 
@@ -157,7 +156,7 @@
 		</div>
 	</div>
 </body>
-<script src="js/index.js"></script>
+<script src="../js/index.js"></script>
 <script >
 	$(function(){
 		ML.index && ML.index.init();
