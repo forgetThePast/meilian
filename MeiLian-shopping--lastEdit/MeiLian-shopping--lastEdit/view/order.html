@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="../dist/validator/dist/js/language/zh_CN.js"></script>
 	<script type="text/javascript" src="../js/login.js"></script>
 	<style>
-		.text{
+		.text1{
 			text-align: left;
 			padding: 0 0 5px 0;
 		}
@@ -102,7 +102,7 @@
 								    </label>
 								</div>
 							</td>
-							<td ng-bind="{{item.id}}"></td>
+							<td ><span >{{item.name}}</span><img ng-src="{{item.imgUrl}}" alt="" style="width: 60px;height: 60px;"></td>
 							<td ng-bind="{{item.price}}"></td>
 							<td>
 								<button class="btn btn-default" ng-click="reduce(item.id)">-</button>
@@ -124,7 +124,7 @@
 							
 						</tr>
 						<tr>
-							<td colspan="5"><button class="btn btn-lg btn-danger">提交订单</button></td>
+							<td colspan="5"><button class="btn btn-lg btn-danger"><a href="success.html">立即支付</a></button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -238,10 +238,16 @@
 	</div><!-- /.modal -->
 </body>
 <script src="../js/index.js"></script>
+
+<script type="text/javascript" src="../js/shopping.js"></script>
 <script >
 	$(function(){
+		// var edit = function(){
+		// 	$('#myModal').modal('show')
+		// }
+		
 		ML.order && ML.order.init();
+
 	})
 </script>
-<script type="text/javascript" src="../js/shopping.js"></script>
 </html>

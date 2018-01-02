@@ -1,6 +1,6 @@
-var app = angular.module("myApp",[]);
+"use strict";
 
-app.controller("myCtrl",["$scope",function($scope){
+angular.module("app").controller("myCtrl",["$scope",function($scope){
 
 	$scope.str = window.location.href;
 	$scope.param = $scope.str.split("=")[1].split(".")[0];
@@ -10,7 +10,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/p1/1.jpg","../img/screen/p1/2.jpg","../img/screen/p1/3.jpg","../img/screen/p1/4.jpg","../img/screen/p1/5.jpg"],
 			"brand":"Dior 迪奥",
 			"info":"无鞋盒 漆皮女士细三角高跟鞋 171603230001 CHC",
-			"price":"￥1880.00",
+			"price":"1880.00",
 			"color":"#f074b4",
 			"size":["36","37.5"],
 			"num":"338906",
@@ -31,7 +31,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/p2/1.jpg","../img/screen/p2/2.jpg","../img/screen/p2/3.jpg","../img/screen/p2/4.jpg"],
 			"brand":"Dior 迪奥",
 			"info":"小牛皮 男士 皮带",
-			"price":"￥3480.00",
+			"price":"3480.00",
 			"color":"#2A2A2A",
 			"size":["100","105","90","95"],
 			"num":"303055",
@@ -52,7 +52,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/p3/1.jpg","../img/screen/p3/2.jpg","../img/screen/p3/3.jpg","../img/screen/p3/4.jpg","../img/screen/p3/5.jpg"],
 			"brand":"Dior 迪奥",
 			"info":"羊皮 女士 手提包",
-			"price":"￥23309.00",
+			"price":"23309.00",
 			"color":"#2963E9",
 			"size":["无",],
 			"num":"303055",
@@ -73,7 +73,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/p4/1.jpg","../img/screen/p4/2.jpg","../img/screen/p4/3.jpg","../img/screen/p4/4.jpg","../img/screen/p4/5.jpg"],
 			"brand":"Dior 迪奥",
 			"info":"牛皮 女士 长钱包",
-			"price":"￥989.00",
+			"price":"989.00",
 			"color":"#2A2A2A",
 			"size":["无",],
 			"num":"101041",
@@ -94,7 +94,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/p5/1.jpg","../img/screen/p5/2.jpg","../img/screen/p5/3.jpg","../img/screen/p5/4.jpg","../img/screen/p5/5.jpg"],
 			"brand":"Dior 迪奥",
 			"info":"桑蚕丝混纺 男士 长袖针织衫",
-			"price":"￥5149.00",
+			"price":"5149.00",
 			"color":"#DDD091",
 			"size":["S","M","L","XL","XXL"],
 			"num":"200104",
@@ -115,7 +115,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/p6/1.jpg","../img/screen/p6/2.jpg","../img/screen/p6/3.jpg","../img/screen/p6/4.jpg","../img/screen/p6/5.jpg"],
 			"brand":"Dior 迪奥",
 			"info":"牛皮 男士 皮带",
-			"price":"￥4010.00",
+			"price":"4010.00",
 			"color":"#2A2A2A",
 			"size":["85","90","95"],
 			"num":"337416",
@@ -136,7 +136,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/p7/1.jpg","../img/screen/p7/2.jpg","../img/screen/p7/3.jpg","../img/screen/p7/4.jpg","../img/screen/p7/5.jpg"],
 			"brand":"Dior 迪奥",
 			"info":"牛皮 男士 平底鞋",
-			"price":"￥5520.00",
+			"price":"5520.00",
 			"color":"#474086",
 			"size":["39","40","40.5","41.5"],
 			"num":"337412",
@@ -157,7 +157,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/p8/1.jpg","../img/screen/p8/2.jpg","../img/screen/p8/3.jpg","../img/screen/p8/4.jpg","../img/screen/p8/5.jpg"],
 			"brand":"Dior 迪奥",
 			"info":"牛皮 男士 短钱包",
-			"price":"￥4010.00",
+			"price":"4010.00",
 			"color":"#1F1E23",
 			"size":["无"],
 			"num":"337411",
@@ -178,7 +178,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/a1/1.jpg","../img/screen/a1/2.jpg","../img/screen/a1/3.jpg"],
 			"brand":"Fendi 芬迪",
 			"info":"貂皮 女士 挂饰",
-			"price":"￥3800.00",
+			"price":"3800.00",
 			"color":"#EC69AA",
 			"size":["无"],
 			"num":"334871",
@@ -199,7 +199,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/a2/1.jpg","../img/screen/a2/2.jpg","../img/screen/a2/3.jpg"],
 			"brand":"Gucci 古驰",
 			"info":"皮革 女士 钥匙扣",
-			"price":"￥1950.00",
+			"price":"1950.00",
 			"color":"#E53C26",
 			"size":["无"],
 			"num":"334916",
@@ -220,7 +220,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/a3/1.jpg","../img/screen/a3/2.jpg","../img/screen/a3/3.jpg"],
 			"brand":"ISABEL 伊珊贝",
 			"info":"珍珠/18K 女士 耳饰",
-			"price":"￥1680.00",
+			"price":"1680.00",
 			"color":"#F2D8CE",
 			"size":["无"],
 			"num":"336526",
@@ -241,7 +241,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/a4/1.jpg","../img/screen/a4/2.jpg","../img/screen/a4/3.jpg"],
 			"brand":"ISABEL 伊珊贝",
 			"info":"珍珠/18K 女士 颈饰",
-			"price":"￥1390.00",
+			"price":"1390.00",
 			"color":"#B4954B",
 			"size":["42"],
 			"num":"336520",
@@ -262,7 +262,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/a5/1.jpg","../img/screen/a5/2.jpg","../img/screen/a5/3.jpg"],
 			"brand":"Anya Hindmarch 安雅•希德玛芝",
 			"info":"绒面皮、玻璃 女士Lips贴纸",
-			"price":"￥927.00",
+			"price":"927.00",
 			"color":"#E84A35",
 			"size":["无"],
 			"num":"120968",
@@ -283,7 +283,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/a6/1.jpg","../img/screen/a6/2.jpg","../img/screen/a6/3.jpg"],
 			"brand":"Anya Hindmarch 安雅•希德玛芝",
 			"info":"水晶 绒面皮 女士Lips贴纸",
-			"price":"￥780.00",
+			"price":"780.00",
 			"color":"#E53F28",
 			"size":["无"],
 			"num":"120610",
@@ -304,7 +304,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/a7/1.jpg","../img/screen/a7/2.jpg","../img/screen/a7/3.jpg"],
 			"brand":"ISABEL 伊珊贝",
 			"info":"珍珠/18K 女士 耳饰",
-			"price":"￥550.00",
+			"price":"550.00",
 			"color":"#F5F5F5",
 			"size":["无"],
 			"num":"336529",
@@ -325,7 +325,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/a8/1.jpg","../img/screen/a8/2.jpg","../img/screen/a8/3.jpg","../img/screen/a8/4.jpg"],
 			"brand":"Lili M",
 			"info":"2017FW | Christmas Special: LA LUMIERE 水滴闪钻耳环",
-			"price":"￥470.00",
+			"price":"470.00",
 			"color":"#F2F1FB",
 			"size":["无"],
 			"num":"336529",
@@ -346,7 +346,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b1/1.jpg","../img/screen/b1/2.jpg","../img/screen/b1/3.jpg","../img/screen/b1/4.jpg"],
 			"brand":"Prada 普拉达",
 			"info":"尼龙布配皮 男士 平底鞋",
-			"price":"￥4000.00",
+			"price":"4000.00",
 			"color":"#ABABAB",
 			"size":["9"],
 			"num":"107683",
@@ -367,7 +367,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b2/1.jpg","../img/screen/b2/2.jpg","../img/screen/b2/3.jpg","../img/screen/b2/4.jpg","../img/screen/b2/5.jpg"],
 			"brand":"Prada 普拉达",
 			"info":"牛皮 男士 套脚休闲皮鞋",
-			"price":"￥3900.00",
+			"price":"3900.00",
 			"color":"#3369EB",
 			"size":["9"],
 			"num":"115762",
@@ -388,7 +388,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b3/1.jpg","../img/screen/b3/2.jpg","../img/screen/b3/3.jpg","../img/screen/b3/4.jpg","../img/screen/b3/5.jpg"],
 			"brand":"Prada 普拉达",
 			"info":"牛皮 女士 中跟皮鞋",
-			"price":"￥5400.00",
+			"price":"5400.00",
 			"color":"#2A2A2A",
 			"size":["35.5","36",'36.5','37','37.5'],
 			"num":"271702",
@@ -409,7 +409,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b4/1.jpg","../img/screen/b4/2.jpg","../img/screen/b4/3.jpg","../img/screen/b4/4.jpg","../img/screen/b4/5.jpg"],
 			"brand":"Gucci 古驰",
 			"info":"2017年全新款式时尚女士光学镜架",
-			"price":"￥1620.00",
+			"price":"1620.00",
 			"color":"#2A2A2A",
 			"size":["55"],
 			"num":"123831",
@@ -431,7 +431,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b5/1.jpg","../img/screen/b5/2.jpg","../img/screen/b5/3.jpg","../img/screen/b5/4.jpg","../img/screen/b5/5.jpg"],
 			"brand":"Moncler 蒙口",
 			"info":"17新款 羽绒 儿童 连帽羽绒服",
-			"price":"￥3313.00",
+			"price":"3313.00",
 			"color":"#2F67EA",
 			"size":["10A","8A"],
 			"num":"320290",
@@ -452,7 +452,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b6/1.jpg","../img/screen/b6/2.jpg","../img/screen/b6/3.jpg","../img/screen/b6/4.jpg","../img/screen/b6/5.jpg"],
 			"brand":"Versace Collection 范思哲系列",
 			"info":"羊毛混纺 男士 套装西服",
-			"price":"￥6000.00",
+			"price":"6000.00",
 			"color":"#A9A9A9",
 			"size":["48","52"],
 			"num":"84767",
@@ -473,7 +473,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b7/1.jpg","../img/screen/b7/2.jpg","../img/screen/b7/3.jpg","../img/screen/b7/4.jpg","../img/screen/b7/5.jpg"],
 			"brand":"Prada 普拉达",
 			"info":"【新品上市】黑色连帽拼接设计男士棉服",
-			"price":"￥5700.00",
+			"price":"5700.00",
 			"color":"#2A2A2A",
 			"size":['M'],
 			"num":"335664",
@@ -494,7 +494,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b8/1.jpg","../img/screen/b8/2.jpg","../img/screen/b8/3.jpg","../img/screen/b8/4.jpg","../img/screen/b8/5.jpg"],
 			"brand":"Prada 普拉达",
 			"info":"桑蚕丝混纺 男士 长袖针织/毛衫",
-			"price":"￥3000.00",
+			"price":"3000.00",
 			"color":"#2A2A2A",
 			"size":['50'],
 			"num":"116808",
@@ -515,7 +515,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b9/1.jpg","../img/screen/b9/2.jpg","../img/screen/b9/3.jpg","../img/screen/b9/4.jpg","../img/screen/b9/5.jpg"],
 			"brand":"Dsquared2 D二次方",
 			"info":"棉质混纺 男士 牛仔裤",
-			"price":"￥2400.00",
+			"price":"2400.00",
 			"color":"#3168EB",
 			"size":['44',"46"],
 			"num":"222832",
@@ -536,7 +536,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b10/1.jpg","../img/screen/b10/2.jpg","../img/screen/b10/3.jpg","../img/screen/b10/4.jpg","../img/screen/b10/5.jpg"],
 			"brand":"Miu Miu 缪缪",
 			"info":"【2017年新款】深蓝色羊毛女士短裤",
-			"price":"￥2400.00",
+			"price":"2400.00",
 			"color":"#2963E9",
 			"size":['38'],
 			"num":"305948",
@@ -557,7 +557,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b11/1.jpg","../img/screen/b11/2.jpg","../img/screen/b11/3.jpg","../img/screen/b11/4.jpg","../img/screen/b11/5.jpg"],
 			"brand":"Salvatore Ferragamo 菲拉格慕",
 			"info":"女士单鞋",
-			"price":"￥3300.00",
+			"price":"3300.00",
 			"color":"#2A2A2A",
 			"size":['7','8'],
 			"num":"240926",
@@ -578,7 +578,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/b12/1.jpg","../img/screen/b12/2.jpg","../img/screen/b12/3.jpg"],
 			"brand":"BRAND UNIQUE",
 			"info":"针织 女士 短袖针织/毛衫",
-			"price":"￥1710.00",
+			"price":"1710.00",
 			"color":"#9FBA55",
 			"size":['38','40'],
 			"num":"338868",
@@ -599,7 +599,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w1/1.jpg","../img/screen/w1/2.jpg","../img/screen/w1/3.jpg","../img/screen/w1/4.jpg","../img/screen/w1/5.jpg"],
 			"brand":"Gucci 古驰",
 			"info":"2017年全新款式时尚女士光学镜架",
-			"price":"￥1620.00",
+			"price":"1620.00",
 			"color":"#2A2A2A",
 			"size":["55"],
 			"num":"123831",
@@ -620,7 +620,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w2/1.jpg","../img/screen/w2/2.jpg","../img/screen/w2/3.jpg","../img/screen/w2/4.jpg"],
 			"brand":"Saint Laurent 圣罗兰",
 			"info":"皮革 女士 长钱包",
-			"price":"￥1440.00",
+			"price":"1440.00",
 			"color":"#2E66EA",
 			"size":["无"],
 			"num":"339035",
@@ -641,7 +641,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w3/1.jpg","../img/screen/w3/2.jpg","../img/screen/w3/3.jpg","../img/screen/w3/4.jpg"],
 			"brand":"ELITESIGNER x SIA KARATI",
 			"info":"9K黄金精华素耳扣",
-			"price":"￥860.00",
+			"price":"860.00",
 			"color":"#CCB98E",
 			"size":["50"],
 			"num":"338965",
@@ -662,7 +662,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w4/1.jpg","../img/screen/w4/2.jpg","../img/screen/w4/3.jpg","../img/screen/w4/4.jpg","../img/screen/w4/5.jpg"],
 			"brand":"ELITESIGNER x SIA KARATI",
 			"info":"9K黄金珍珠精华素耳环",
-			"price":"￥880.00",
+			"price":"880.00",
 			"color":"#CCB98E",
 			"size":["50"],
 			"num":"338964",
@@ -683,7 +683,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w5/1.jpg","../img/screen/w5/2.jpg","../img/screen/w5/3.jpg","../img/screen/w5/4.jpg","../img/screen/w5/5.jpg",],
 			"brand":"ELITESIGNER x SIA KARATI",
 			"info":"14K黄金精华素双链吊坠",
-			"price":"￥3600.00",
+			"price":"3600.00",
 			"color":"#CCB98E",
 			"size":["50"],
 			"num":"338962",
@@ -704,7 +704,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w6/1.jpg","../img/screen/w6/2.jpg","../img/screen/w6/3.jpg","../img/screen/w6/4.jpg"],
 			"brand":"ELITESIGNER x SIA KARATI",
 			"info":"9K黄金精华素耳钉",
-			"price":"￥1750.00",
+			"price":"1750.00",
 			"color":"#CCB98E",
 			"size":["50"],
 			"num":"338962",
@@ -725,7 +725,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w7/1.jpg","../img/screen/w7/2.jpg","../img/screen/w7/3.jpg","../img/screen/w7/4.jpg","../img/screen/w7/5.jpg"],
 			"brand":"Fondamentale",
 			"info":"羊绒99% 女士 围巾",
-			"price":"￥690.00",
+			"price":"690.00",
 			"color":"#2B64E9",
 			"size":["无"],
 			"num":"339015",
@@ -746,7 +746,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w8/1.jpg","../img/screen/w8/2.jpg","../img/screen/w8/3.jpg","../img/screen/w8/4.jpg"],
 			"brand":"Fondamentale",
 			"info":"羊绒99% 女士 围巾",
-			"price":"￥690.00",
+			"price":"690.00",
 			"color":"#F8F1E4",
 			"size":["无"],
 			"num":"339014",
@@ -767,7 +767,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w9/1.jpg","../img/screen/w9/2.jpg","../img/screen/w9/3.jpg","../img/screen/w9/4.jpg","../img/screen/w9/5.jpg"],
 			"brand":"Fondamentale",
 			"info":"羊毛99%+羊皮流苏 女士 围巾",
-			"price":"￥900.00",
+			"price":"900.00",
 			"color":"#985C38",
 			"size":["无"],
 			"num":"339013",
@@ -788,7 +788,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w10/1.jpg","../img/screen/w10/2.jpg","../img/screen/w10/3.jpg","../img/screen/w10/4.jpg","../img/screen/w10/5.jpg"],
 			"brand":"Fondamentale",
 			"info":"羊绒99% 女士 围巾",
-			"price":"￥790.00",
+			"price":"790.00",
 			"color":"#FFE03E",
 			"size":["无"],
 			"num":"339012",
@@ -809,7 +809,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/w11/1.jpg","../img/screen/w11/2.jpg","../img/screen/w11/3.jpg","../img/screen/w11/4.jpg"],
 			"brand":"Fondamentale",
 			"info":"羊毛99% 女士 围巾",
-			"price":"￥360.00",
+			"price":"360.00",
 			"color":"#453146",
 			"size":["无"],
 			"num":"338874",
@@ -830,7 +830,7 @@ app.controller("myCtrl",["$scope",function($scope){
 		"sider":["../img/screen/w12/1.jpg","../img/screen/w12/2.jpg","../img/screen/w12/3.jpg","../img/screen/w12/4.jpg"],
 		"brand":"Fondamentale",
 		"info":"羊毛99% 女士 围巾",
-		"price":"￥360.00",
+		"price":"360.00",
 		"color":"#2F221B",
 		"size":["无"],
 		"num":"338873",
@@ -851,7 +851,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/f1/1.jpg","../img/screen/f1/2.jpg","../img/screen/f1/3.jpg","../img/screen/f1/4.jpg","../img/screen/f1/5.jpg"],
 			"brand":"Sretsis",
 			"info":"Sretsis 针织飞马高领毛衣",
-			"price":"￥2600.00",
+			"price":"2600.00",
 			"color":"#994C23",
 			"size":['2','4','6','8'],
 			"num":"338866",
@@ -872,7 +872,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/f2/1.jpg"],
 			"brand":"Sretsis",
 			"info":"Sretsis 针织飞马高领毛衣",
-			"price":"￥2600.00",
+			"price":"2600.00",
 			"color":"#994C23",
 			"size":['2','4','6','8'],
 			"num":"338871",
@@ -893,7 +893,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/f3/1.jpg","../img/screen/f3/2.jpg","../img/screen/f3/3.jpg","../img/screen/f3/4.jpg"],
 			"brand":"Sretsis",
 			"info":"Sretsis ",
-			"price":"￥1990.00",
+			"price":"1990.00",
 			"color":"#2A2A2A",
 			"size":['F'],
 			"num":"334077",
@@ -914,7 +914,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/f4/1.jpg","../img/screen/f4/2.jpg","../img/screen/f4/3.jpg"],
 			"brand":"THEA by Thara",
 			"info":"长袖单扣西装外套 ",
-			"price":"￥2650.00",
+			"price":"2650.00",
 			"color":"#F9F9F9",
 			"size":['2','4','6'],
 			"num":"	334098",
@@ -935,7 +935,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/f5/1.jpg","../img/screen/f5/2.jpg"],
 			"brand":"POEM",
 			"info":"POEM 软鱼骨一字领上衣 ",
-			"price":"￥1900.00",
+			"price":"1900.00",
 			"color":"#386167",
 			"size":['32','36'],
 			"num":"330409",
@@ -956,7 +956,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/f6/1.jpg","../img/screen/f6/2.jpg","../img/screen/f6/3.jpg","../img/screen/f6/4.jpg","../img/screen/f6/5.jpg"],
 			"brand":"THEA by Thara",
 			"info":"花朵拼接丝绒连衣裙 ",
-			"price":"￥2500.00",
+			"price":"2500.00",
 			"color":"#E7442D",
 			"size":['2','4','6'],
 			"num":"		334107",
@@ -977,7 +977,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/f7/1.jpg","../img/screen/f7/2.jpg","../img/screen/f7/3.jpg","../img/screen/f7/4.jpg","../img/screen/f7/5.jpg"],
 			"brand":"Sretsis",
 			"info":"Sretsis 星空主题 超长连衣裙",
-			"price":"￥5940.00",
+			"price":"5940.00",
 			"color":"#EAD3B9",
 			"size":['2','4','6'],
 			"num":"331876",
@@ -998,7 +998,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/f8/1.jpg","../img/screen/f8/2.jpg","../img/screen/f8/3.jpg","../img/screen/f8/4.jpg","../img/screen/f8/5.jpg"],
 			"brand":"Sretsis",
 			"info":"Sretsis 星空主题 超长连衣裙",
-			"price":"￥4060.00",
+			"price":"4060.00",
 			"color":"#EAD3B9",
 			"size":['2','4','6'],
 			"num":"331881",
@@ -1022,7 +1022,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s1/1.jpg","../img/screen/s1/2.jpg","../img/screen/s1/3.jpg","../img/screen/s1/4.jpg","../img/screen/s1/5.jpg"],
 			"brand":"Yuppie Life 雅痞",
 			"info":"【卡趣 丫布兔】 儿童豆袋沙发",
-			"price":"￥300.00",
+			"price":"300.00",
 			"color":"#EE70AF",
 			"size":['无'],
 			"num":"337962",
@@ -1043,7 +1043,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s2/1.jpg","../img/screen/s2/2.jpg","../img/screen/s2/3.jpg","../img/screen/s2/4.jpg","../img/screen/s2/5.jpg"],
 			"brand":"Yuppie Life 雅痞",
 			"info":"【卡趣 丫布兔】 儿童豆袋沙发",
-			"price":"￥300.00",
+			"price":"300.00",
 			"color":"#C6DAE9",
 			"size":['无'],
 			"num":"337963",
@@ -1064,7 +1064,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s3/1.jpg","../img/screen/s3/2.jpg","../img/screen/s3/3.jpg","../img/screen/s3/4.jpg","../img/screen/s3/5.jpg"],
 			"brand":"Yuppie Life 雅痞",
 			"info":"【喵呜】 布艺搁脚凳坐凳",
-			"price":"￥200.00",
+			"price":"200.00",
 			"color":"#F6C671",
 			"size":['无'],
 			"num":"337961",
@@ -1085,7 +1085,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s4/1.jpg","../img/screen/s4/2.jpg","../img/screen/s4/3.jpg","../img/screen/s4/4.jpg","../img/screen/s4/5.jpg"],
 			"brand":"Yuppie Life 雅痞",
 			"info":"【摩登 丫布兔】成人豆袋沙发",
-			"price":"￥800.00",
+			"price":"800.00",
 			"color":"#EC69AA",
 			"size":['无'],
 			"num":"	337960",
@@ -1106,7 +1106,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s5/1.jpg","../img/screen/s5/2.jpg","../img/screen/s5/3.jpg","../img/screen/s5/4.jpg","../img/screen/s5/5.jpg"],
 			"brand":"Yuppie Life 雅痞",
 			"info":"【喵呜】 布艺搁脚凳坐凳",
-			"price":"￥200.00",
+			"price":"200.00",
 			"color":"#63686E",
 			"size":['无'],
 			"num":"337959",
@@ -1127,7 +1127,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s6/1.jpg","../img/screen/s6/2.jpg","../img/screen/s6/3.jpg","../img/screen/s6/4.jpg","../img/screen/s6/5.jpg"],
 			"brand":"Yuppie Life 雅痞",
 			"info":"【摩登 丫布兔】成人豆袋沙发",
-			"price":"￥800.00",
+			"price":"800.00",
 			"color":"#DED8E4",
 			"size":['无'],
 			"num":"	337958",
@@ -1148,7 +1148,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s7/1.jpg","../img/screen/s7/2.jpg","../img/screen/s7/3.jpg","../img/screen/s7/4.jpg","../img/screen/s7/5.jpg"],
 			"brand":"Yuppie Life 雅痞",
 			"info":"【喵呜】 布艺搁脚凳坐凳",
-			"price":"￥200.00",
+			"price":"200.00",
 			"color":"#272E46",
 			"size":['无'],
 			"num":"337957",
@@ -1169,7 +1169,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s8/1.jpg","../img/screen/s8/2.jpg","../img/screen/s8/3.jpg","../img/screen/s8/4.jpg","../img/screen/s8/5.jpg"],
 			"brand":"Yuppie Life 雅痞",
 			"info":"【摩登 丫布兔】成人豆袋沙发",
-			"price":"￥650.00",
+			"price":"650.00",
 			"color":"#7E7C7E",
 			"size":['无'],
 			"num":"	337956",
@@ -1192,7 +1192,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/m1/1.jpg","../img/screen/m1/2.jpg","../img/screen/m1/3.jpg","../img/screen/m1/4.jpg"],
 			"brand":"Sunnei",
 			"info":"美利奴羊毛 男士 围巾",
-			"price":"￥1910.00",
+			"price":"1910.00",
 			"color":"#393641",
 			"size":["无"],
 			"num":"339116",
@@ -1214,7 +1214,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m2/1.jpg","../img/screen/m2/2.jpg","../img/screen/m2/3.jpg","../img/screen/m2/4.jpg"],
 				"brand":"Raf Simons",
 				"info":"棉质 男士 棒球帽",
-				"price":"￥1380.00",
+				"price":"1380.00",
 				"color":"#9D754B",
 				"size":["无"],
 				"num":"339074",
@@ -1235,7 +1235,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m3/1.jpg","../img/screen/m3/2.jpg","../img/screen/m3/3.jpg","../img/screen/m3/4.jpg"],
 				"brand":"Sunnei",
 				"info":"美利奴羊毛 男士 围巾",
-				"price":"￥1910.00",
+				"price":"1910.00",
 				"color":"#3369EB",
 				"size":["无"],
 				"num":"339037",
@@ -1256,7 +1256,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m4/1.jpg","../img/screen/m4/2.jpg","../img/screen/m4/3.jpg","../img/screen/m4/4.jpg","../img/screen/m4/5.jpg"],
 				"brand":"Versace Collection 范思哲系列",
 				"info":"皮质 男仕 腰带",
-				"price":"￥1380.00",
+				"price":"1380.00",
 				"color":"#2C2F3A",
 				"size":["100","105","90","95"],
 				"num":"264862",
@@ -1277,7 +1277,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m5/1.jpg","../img/screen/m5/2.jpg","../img/screen/m5/3.jpg","../img/screen/m5/4.jpg","../img/screen/m5/5.jpg"],
 				"brand":"VERSACE JEANS 范思哲牛仔",
 				"info":"皮质 男仕 腰带",
-				"price":"￥1120.00",
+				"price":"1120.00",
 				"color":"#3A3A3B",
 				"size":["100","105","90","95"],
 				"num":"264862",
@@ -1298,7 +1298,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m6/1.jpg","../img/screen/m6/2.jpg","../img/screen/m6/3.jpg","../img/screen/m6/4.jpg","../img/screen/m6/5.jpg"],
 				"brand":"Versace 范思哲",
 				"info":"牛皮 男仕 腰带",
-				"price":"￥3190.00",
+				"price":"3190.00",
 				"color":"#3369EB",
 				"size":["100","105","90","95"],
 				"num":"273321",
@@ -1319,7 +1319,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m7/1.jpg","../img/screen/m7/2.jpg","../img/screen/m7/3.jpg","../img/screen/m7/4.jpg","../img/screen/m7/5.jpg"],
 				"brand":"Raf Simons",
 				"info":"棉质 男士 棒球帽",
-				"price":"￥1380.00",
+				"price":"1380.00",
 				"color":"#2A2A2A",
 				"size":["无"],
 				"num":"338762",
@@ -1340,7 +1340,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m8/1.jpg","../img/screen/m8/2.jpg","../img/screen/m8/3.jpg","../img/screen/m8/4.jpg"],
 				"brand":"Cartier 卡地亚",
 				"info":"镀铂金合金 哑光半框 光学镜架",
-				"price":"￥6100.00",
+				"price":"6100.00",
 				"color":"#D3D3D3",
 				"size":["无"],
 				"num":"89901",
@@ -1361,7 +1361,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m9/1.jpg","../img/screen/m9/2.jpg","../img/screen/m9/3.jpg"],
 				"brand":"Louis Vuitton 路易威登",
 				"info":"皮革 男仕 啡色印花皮带（95cm）",
-				"price":"￥4400.00",
+				"price":"4400.00",
 				"color":"#A47456",
 				"size":["无"],
 				"num":"128782",
@@ -1382,7 +1382,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m10/1.jpg","../img/screen/m10/2.jpg","../img/screen/m10/3.jpg","../img/screen/m10/4.jpg"],
 				"brand":"Louis Vuitton 路易威登",
 				"info":"皮革 男仕 啡色印花皮带（90cm）",
-				"price":"￥3700.00",
+				"price":"3700.00",
 				"color":"#A47456",
 				"size":["无"],
 				"num":"128776",
@@ -1403,7 +1403,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m11/1.jpg","../img/screen/m11/2.jpg","../img/screen/m11/3.jpg","../img/screen/m11/4.jpg"],
 				"brand":"Dior 迪奥",
 				"info":"小牛皮 男士 皮带",
-				"price":"￥3480.00",
+				"price":"3480.00",
 				"color":"#2E2E2E",
 				"size":["100","105","90","95"],
 				"num":"303055",
@@ -1424,7 +1424,7 @@ app.controller("myCtrl",["$scope",function($scope){
 				"sider":["../img/screen/m12/1.jpg","../img/screen/m12/2.jpg","../img/screen/m12/3.jpg","../img/screen/m12/4.jpg","../img/screen/m12/5.jpg"],
 				"brand":"Versace Collection 范思哲系列",
 				"info":"17春夏新款 皮质 男仕 双面腰带",
-				"price":"￥1540.00",
+				"price":"1540.00",
 				"color":"#4271E6",
 				"size":["100","105","90","95"],
 				"num":"286455",
@@ -1448,7 +1448,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s11/1.jpg","../img/screen/s11/2.jpg","../img/screen/s11/3.jpg","../img/screen/s11/4.jpg","../img/screen/s11/5.jpg"],
 			"brand":"Frankie Morello 弗兰基.莫雷诺",
 			"info":"WIFI眼 男士 卫衣",
-			"price":"￥1190.00",
+			"price":"1190.00",
 			"color":"#2963E9",
 			"size":["46","48","50","52"],
 			"num":"336631",
@@ -1469,7 +1469,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s22/1.jpg","../img/screen/s22/2.jpg","../img/screen/s22/3.jpg","../img/screen/s22/4.jpg","../img/screen/s22/5.jpg"],
 			"brand":"Frankie Morello 弗兰基.莫雷诺",
 			"info":"WIFI眼 男士 卫衣",
-			"price":"￥1190.00",
+			"price":"1190.00",
 			"color":"#969696",
 			"size":["46","48","50","52"],
 			"num":"336634",
@@ -1490,7 +1490,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s33/1.jpg","../img/screen/s33/2.jpg","../img/screen/s33/3.jpg","../img/screen/s33/4.jpg","../img/screen/s33/5.jpg"],
 			"brand":"Frankie Morello 弗兰基.莫雷诺",
 			"info":"金龟子图案金银丝勾花羊毛衫",
-			"price":"￥1790.00",
+			"price":"1790.00",
 			"color":"#969696",
 			"size":["46","48","50","52"],
 			"num":"337870",
@@ -1511,7 +1511,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s44/1.jpg","../img/screen/s44/2.jpg","../img/screen/s44/3.jpg","../img/screen/s44/4.jpg","../img/screen/s44/5.jpg"],
 			"brand":"Frankie Morello 弗兰基.莫雷诺",
 			"info":"科技印花长袖连帽开衫卫衣",
-			"price":"￥2590.00",
+			"price":"2590.00",
 			"color":"#A3A3A3",
 			"size":["46","48","50","52"],
 			"num":"336597",
@@ -1532,7 +1532,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s55/1.jpg","../img/screen/s55/2.jpg","../img/screen/s55/3.jpg","../img/screen/s55/4.jpg","../img/screen/s55/5.jpg"],
 			"brand":"Frankie Morello 弗兰基.莫雷诺",
 			"info":"科技印花夹棉男士运动短夹克",
-			"price":"￥5390.00",
+			"price":"5390.00",
 			"color":"#5A5058",
 			"size":["46","48","50"],
 			"num":"337600",
@@ -1553,7 +1553,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s66/1.jpg","../img/screen/s66/2.jpg","../img/screen/s66/3.jpg","../img/screen/s66/4.jpg","../img/screen/s66/5.jpg"],
 			"brand":"Frankie Morello 弗兰基.莫雷诺",
 			"info":"机械羽翼休闲卫衣",
-			"price":"￥1690.00",
+			"price":"1690.00",
 			"color":"#2A2A2A",
 			"size":["46","48","50","52"],
 			"num":"336607",
@@ -1574,7 +1574,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s77/1.jpg","../img/screen/s77/2.jpg","../img/screen/s77/3.jpg","../img/screen/s77/4.jpg","../img/screen/s77/5.jpg"],
 			"brand":"Frankie Morello 弗兰基.莫雷诺",
 			"info":"印花图腾羊毛衫",
-			"price":"￥1690.00",
+			"price":"1690.00",
 			"color":"#B2C86E",
 			"size":["46","48","50","52"],
 			"num":"337937",
@@ -1595,7 +1595,7 @@ app.controller("myCtrl",["$scope",function($scope){
 			"sider":["../img/screen/s88/1.jpg","../img/screen/s88/2.jpg","../img/screen/s88/3.jpg","../img/screen/s88/4.jpg","../img/screen/s88/5.jpg"],
 			"brand":"Frankie Morello 弗兰基.莫雷诺",
 			"info":"全印花长袖开衫卫衣",
-			"price":"￥2490.00",
+			"price":"2490.00",
 			"color":"#DA7473",
 			"size":["46","48","50","52"],
 			"num":"337623",
@@ -1618,26 +1618,86 @@ app.controller("myCtrl",["$scope",function($scope){
 	};
 	
 
+	var accountIds = sessionStorage.getItem('accountId');
+			var getNum = function(id){
+				$.ajax({
+				url:MLurl+"/sellmall/cart/selectCartListByAccountId?accountId="+id,
+				type:"get",
+				contentType: "application/json;charset=UTF-8",
+				beforeSend:function (request) {
+	                    request.setRequestHeader("X-Token", sessionStorage.getItem("token"));
+	                },
+				success:function(resp){
+					if(resp.code=="0"){
+						$('.num').html(resp.data.length)
+					}
+				},
+
+
+			});
+
+			}
+			// console.log(data)
+			
+
 
 	$(".btnAdd").on('click',function(){
+
+
 		var str = window.location.href;
 		var info = str.split("=")[1].split(".")[0];
 		
 		var Date = Date || {};
-		Date.cartId = info;
-		Date.goodsName = $scope.details[info].brand;
+		Date.goodsCode = info;
+		Date.accountId = sessionStorage.getItem("accountId")
+		Date.goodsName = info;
 		Date.price = $scope.details[info].price;
 		$.ajax({
 			url :MLurl+"/sellmall/cart",
 			type:"post",
 			data:JSON.stringify(Date),
+			contentType: "application/json;charset=UTF-8",
+			beforeSend:function (request) {
+                    request.setRequestHeader("X-Token", sessionStorage.getItem("token"));
+                },
 			success:function(resp){
 				if(resp.code=="-2"){
 					alert('登录已经过期，请重新登录');
+				}else if(resp.code =="0"){
+
+					alert("添加成功");
+					getNum(accountIds);
+
 				}
 			}
 		})
 
 	})
+
+	$(".btnBuy").on('click',function(){
+
+
+		// var str = window.location.href;
+		// var info = str.split("=")[1].split(".")[0];
+		
+		// var Date = Date || {};
+		// Date.cartId = info;
+		// Date.goodsName = $scope.details[info].brand;
+		// Date.price = $scope.details[info].price;
+		// sessionStorage.obj1 = JSON.stringify(Date)
+		// window.location.href ="order.html"
+		// $.ajax({
+		// 	url :MLurl+"/sellmall/cart",
+		// 	type:"post",
+		// 	data:JSON.stringify(Date),
+		// 	success:function(resp){
+		// 		if(resp.code=="-2"){
+		// 			alert('登录已经过期，请重新登录');
+		// 		}
+		// 	}
+		// })
+
+	})
+
 	
 }])

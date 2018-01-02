@@ -1,31 +1,38 @@
-angular.module("app",[]).controller("shopCtrl",["$scope",function($scope){
-	// alert("123")
-	$scope.list = [
-		{
-			id:"101",
-			name:"iphone6",
-			price:"5600",
-			number:3
-		},
-		{
-			id:"102",
-			name:"iphone8",
-			price:"8600",
-			number:13
-		},
-		{
-			id:"103",
-			name:"iphone7",
-			price:"7600",
-			number:28
-		},
-		{
-			id:"104",
-			name:"iphone5s",
-			price:"4200",
-			number:17
-		}
-	]
+angular.module("app").controller("shopCtrl",["$scope",function($scope){
+	var accountIds = sessionStorage.getItem('accountId');
+	var returnData = function(id){
+		var list=[];
+		$.ajax({
+			url:MLurl+"/sellmall/cart/selectCartListByAccountId?accountId="+id,
+			type:"get",
+			contentType: "application/json;charset=UTF-8",
+			beforeSend:function (request) {
+                    request.setRequestHeader("X-Token", sessionStorage.getItem("token"));
+                },
+			success:function(resp){
+				if(resp.code=="0"){
+					for(var i =0;i<resp.data.length;i++){
+						list[i]=resp.data[i];
+					}
+				}
+			},
+		});
+		console.log(list.length)
+	}
+
+	console.log(returnData(accountIds))
+	// $scope.list=$scope.returnData(accountIds);
+	var result=[];
+	var i;
+	// 筛选数量
+	// function find(i){
+	// 	  if(i<4){
+	// 	     result[i]=value[i]
+	// 	     find(i+1);
+	// 	  }
+	// 	}
+	// 	find(0);
+	// console.log(arr)
 
 // 计算总价
 	$scope.totalPrice = function(){

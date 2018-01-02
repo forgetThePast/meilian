@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美联—发现全球独立设计，全球奢侈品购物网站,奢侈品网购，正品折扣,尽在美联购物</title>
+	<link rel="stylesheet" href="../dist/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/dior.css">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<link rel="shortcut icon" href="../favicon.ico">
+	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script type="text/javascript" src="../dist/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../dist/validator/dist/js/language/zh_CN.js"></script>
+	<script type="text/javascript" src="../js/login.js"></script>
+	<style>
+		.text1{
+			text-align: left;
+			padding: 0 0 5px 0;
+		}
+		a.edit,a.remove{
+			color: #CCC;
+		}
+	</style>
+</head>
+<body ng-app="app" ng-controller="shopCtrl">
+	<div app-head></div>
+
+	<div class="w banner">
+		<div class="logo"><img src="../img/logo.png" alt=""></div>
+		<div class="searchArea ">
+			<input type="text" placeholder="请输搜索关键字" class="fl"> <span class="fr"></span>
+		</div>
+	</div>
+
+	<div class="nav">
+		<div class="w navbar">
+			<ul class="navList">
+				<li class="item fl">
+					<a href="../index.html">首页</a>
+
+				</li>
+				<li class="item fl">
+					<a href="javascript:;">女士</a>
+					
+				</li> 
+				<li class="item fl">
+					<a href="javascript:;">男士</a>
+				</li>
+				<li class="item fl">
+					<a href="javascript:;">品牌</a>
+				</li>
+			</ul>
+		</div>
+		<div class="itemList">
+			<ol class="w">
+				
+			</ol>
+		</div>
+	</div>
+
+	<div class="shop">
+		<div class="w">
+			<h3 style="height: 100px;color: red;">支付成功</h3>
+			<a href="index.html">返回首页</a>
+		</div>
+	
+	</div>
+	
+
+	
+
+
+	<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content" style="height: 500px;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					填写地址
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container">
+				      <div class="row" style="margin-top: 20px;">
+				    	 <label for="">收货人：</label>
+			       		<input type="text" class="username" name="username" style="border:1px solid rgb(169, 169, 169);">
+				    </div>
+				    <div class="row" style="margin-top: 20px;">
+				       <label for="">选择省份：</label>
+				        <select class=" province" name="province"  >
+				        </select>
+					</div>
+				    <div class="row" style="margin-top: 20px;">
+				    	 <label for="">选择市：</label>
+			       		<select class=" city" name="city">
+			        	</select>
+				    </div>
+				    <div class="row" style="margin-top: 20px;">
+				    	 <label for="">选择县/区：</label>
+			       		<select class=" district" name="district" >
+			        	</select>
+				    </div>
+				     <div class="row" style="margin-top: 20px;">
+				    	 <label for="">详细地址：</label>
+			       		<input type="text" class="detailAddress" name="detailAddress" style="border:1px solid rgb(169, 169, 169);">
+				    </div>
+				     <div class="row" style="margin-top: 20px;">
+				    	 <label for="">联系电话：</label>
+			       		<input type="text" class="phone" name="phone" style="border:1px solid rgb(169, 169, 169);">
+				    </div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary addressbtn">
+					提交
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</body>
+<script src="../js/index.js"></script>
+
+<script type="text/javascript" src="../js/shopping.js"></script>
+<script >
+	$(function(){
+		// var edit = function(){
+		// 	$('#myModal').modal('show')
+		// }
+		
+		ML.order && ML.order.init();
+
+	})
+</script>
+</html>

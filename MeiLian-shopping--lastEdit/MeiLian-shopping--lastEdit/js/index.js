@@ -2,18 +2,73 @@ var ML = ML || {} ;
 // 配置url
 var MLurl = "http://localhost:8080";
 
+		
 // 加载头部信息
-angular.module('app',[]).directive("appHead",['$http',function($http){
+angular.module('app',[]).directive("appHead",["$http",function($http){
 	return {
 		restrict:'A',
 		replace:true,
 		templateUrl:"template.html",
-		
+		link:function(){
+			var accountIds = sessionStorage.getItem('accountId');
+			if(sessionStorage.getItem("accountName")){
+				$(".accountName1").html(sessionStorage.getItem("accountName"));
+				$(".accountName1").attr("href","javascript:;")
+				$(".loginBtn").html("退出登录");
+				$(".loginBtn").attr("href","javascript:;")
+			}else{
+				$(".accountName1").html("登录");
+				$(".accountName1").attr("href","login.html")
+				$(".loginBtn").html("注册")
+				$(".loginBtn").attr("href","register.html");
+
+			}
+			$(".loginBtn").off("click").on("click",function(){
+				if($(this).html()=="退出登录"){
+					var returnKey = confirm("你确定要退出嘛?")
+					if(returnKey){
+						$(".accountName1").html("登录");
+						$(".accountName1").attr("href","login.html")
+						$(".loginBtn").html("注册")
+						$(".loginBtn").attr("href","register.html");
+						sessionStorage.removeItem('accountName');
+						sessionStorage.removeItem('token');
+						sessionStorage.removeItem('accountId');
+						return ;
+					}
+				}
+			})
+
+			// 根据accountId查购物车
+			var accountIds = sessionStorage.getItem('accountId');
+			var getNum = function(id){
+				$.ajax({
+				url:MLurl+"/sellmall/cart/selectCartListByAccountId?accountId="+id,
+				type:"get",
+				contentType: "application/json;charset=UTF-8",
+				beforeSend:function (request) {
+	                    request.setRequestHeader("X-Token", sessionStorage.getItem("token"));
+	                },
+				success:function(resp){
+					if(resp.code=="0"){
+						$('.num').html(resp.data.length)
+					}
+				},
+
+
+			});
+
+			}
+			// console.log(data)
+			getNum(accountIds)
+
+		}
 	}
 }]);
-// angular.module('app',[]).controller('mainCtrl', ['$scope', function($scope){
-//
-// }])
+
+
+
+
 
 
 
@@ -161,18 +216,7 @@ ML.index = (function(self){
 			
 		})
 
-		var sessionItem = sessionStorage.getItem("token");
-		var data = {token:sessionItem}
-		$.ajax({
-			url:MLurl+"/common/auth",
- 			type:"post",
- 			dataType:"json",
- 			contentType: "application/json;charset=UTF-8",
- 			data:JSON.stringify(data),
- 			success:function(resp){
- 				console.log(resp)
- 			}
-		})
+		
 
 		
 		
@@ -314,10 +358,14 @@ ML.details = (function(self){
 					window.location.href = "brand.html";
 				})
 			}
-
-			
-			
+		
 		});
+		$('.sideImg').click(function(event) {
+		/* Act on the event */
+		$(this).children('img').addClass("sel");
+		$(this).siblings('li').children('img').removeClass('sel');
+		$('.big img').attr("src",$(this).children('img').attr("src"))
+	});
 		showPage();
 	}
 	return self;
@@ -498,12 +546,17 @@ ML.login = (function(self){
          			contentType: "application/json;charset=UTF-8",
          			data:JSON.stringify(data),
          			success:function(resp){
+
          				if(resp&&resp.code=="-1"){
          					alert('该账号不存在')
          				}else if(resp&&resp.code=="0"){
-         					
+         					console.log(resp)
          					sessionStorage.setItem("token", resp.data.token);
+         					sessionStorage.setItem("accountName", resp.data.account.accountName);
+         					sessionStorage.setItem("accountId", resp.data.account.accountId);
          					location.href='index.html';
+         				}else if(resp.code=="1"){
+         					alert("账号已经存在！")
          				}
          			}
          		})
@@ -515,8 +568,57 @@ ML.login = (function(self){
 
 
 ML.shop = (function(self){
-	
+	var buildList = function(param){
+		
+		var html = "";
+		var html1 = "";
+
+		var data = ML.list[param];
+		for(var item in data){
+			// console.log();
+			var html1 = "";
+			var str =data[item];
+			// console.log(str);
+			for(var i = 0;i<str.length;i++){
+				html1+="<li>"+str[i]+"</li>";
+			}
+			
+			html+='<li class="fl items">'+item+"<ul>"+html1+"</ul></li>";
+		}
+		
+		
+		return html;
+	}; 
 	self.init = function(){
+		$(".navList li a").hover(function(){
+			var $this = $(this).text()
+			if($this=="首页"){
+				$(".itemList").hide()
+			}else{
+				$('.itemList').stop().slideDown();
+				$('.itemList  ol').empty();
+				var str =buildList($this);
+				$('.itemList  ol').prepend(str);
+				$(".itemList").mouseleave(function(event) {
+					$(this).hide();
+				});
+			}
+			// console.log($this);
+			if($this=="女士"){
+				$('.itemList li').click(function(){
+					window.location.href = "nv.html";
+				})
+			}else if($this=="男士"){
+				$('.itemList li').click(function(){
+					window.location.href = "nan.html";
+				})
+			}else if($this=="品牌"){
+				$('.itemList li').click(function(){
+					window.location.href = "brand.html";
+				})
+			}
+	
+		});
 		$(".table input[type='checkbox']").prop('checked',true)
 		$(".table tbody tr td div input").click(function(){
 			if($(".table tbody tr td div input").prop('checked')){
@@ -524,7 +626,7 @@ ML.shop = (function(self){
 			}else{
 				$(".selectAll").prop("checked",false)
 			}
-		})
+		}) 
 	}
 	return self;
 })(ML.shop||{});
@@ -532,8 +634,69 @@ ML.shop = (function(self){
 
 // 订单
 ML.order = (function(self){
+	var buildList = function(param){
+		
+		var html = "";
+		var html1 = "";
+
+		var data = ML.list[param];
+		for(var item in data){
+			// console.log();
+			var html1 = "";
+			var str =data[item];
+			// console.log(str);
+			for(var i = 0;i<str.length;i++){
+				html1+="<li>"+str[i]+"</li>";
+			}
+			
+			html+='<li class="fl items">'+item+"<ul>"+html1+"</ul></li>";
+		}
+		
+		
+		return html;
+	}; 
+	var getSession = function(){
+			var addressData = JSON.parse(sessionStorage.obj);
+			return addressData;
+		} 
+		// var buildHtml = function(){
+		// 	var html = "";
+
+		// }
+
 	
+		
 	self.init = function(){
+		$(".navList li a").hover(function(){
+			var $this = $(this).text()
+			if($this=="首页"){
+				$(".itemList").hide()
+			}else{
+				$('.itemList').stop().slideDown();
+				$('.itemList  ol').empty();
+				var str =buildList($this);
+				$('.itemList  ol').prepend(str);
+				$(".itemList").mouseleave(function(event) {
+					$(this).hide();
+				});
+			}
+			// console.log($this);
+			if($this=="女士"){
+				$('.itemList li').click(function(){
+					window.location.href = "nv.html";
+				})
+			}else if($this=="男士"){
+				$('.itemList li').click(function(){
+					window.location.href = "nan.html";
+				})
+			}else if($this=="品牌"){
+				$('.itemList li').click(function(){
+					window.location.href = "brand.html";
+				})
+			}
+	
+		});
+		getSession();
 		$(".table input[type='checkbox']").prop('checked',true)
 		$(".table tbody tr td div input").click(function(){
 			if($(".table tbody tr td div input").prop('checked')){
@@ -569,40 +732,48 @@ ML.order = (function(self){
 			var str = JSON.stringify(Address)
 			sessionStorage.obj = str;
 			$('#myModal').modal('hide')
+			window.location.reload();
 		});
 
 
 		// 回填数据
-		var getSession = function(){
-			var addressData = JSON.parse(sessionStorage.obj);
-			return addressData;
-		} 
 		
 		console.log(getSession())
 		var addressData = getSession()
-		if(addressData){
+		if(addressData!=undefined){
+
 			$(".address-list").prepend('<div class="address-item active" style="margin: 20px 20px 0 0;width: 200px;float: left;padding: 5px 8px 2px;border: 3px dashed #ccc;cursor: pointer;height:95px;">'+ 
 					'<div class="address-new" style="padding: 6px;text-align: center;color: #ccc;">'+
-					'<div class="text" style="border-bottom:1px solid #ccc;">'+addressData["province"]+"  "+addressData["city"]+" "+addressData["detailAddress"]+'</div>'+
-					 '<div class="text">'+addressData["username"]+" ("+addressData["phone"]+" 收)"+'</div></div><div class="opa"></div></div>');
+					'<div class="text1" style="border-bottom:1px solid #ccc;">'+addressData["province"]+"  "+addressData["city"]+" "+addressData["district"]+'</div>'+
+					 '<div class="text1">'+addressData["detailAddress"]+" "+addressData["username"]+" ("+addressData["phone"]+" 收)"+'</div></div><div class="opa"></div></div>');
 
 
+		}else{
+			return ;
 		}
+		
 
 		$('.address-list .active').hover(function(){
 			$(this).css('border-color',"red");
-			$(this).children('.opa').empty().html('<a class="edit" href="javascript:;" style="margin-right:20px">修改</a><a href="javascript:;" class="remove">删除</a>')
+			$(this).children('.opa').empty().html('<a class="edit" id="eidt" href="javascript:;" style="margin-right:20px">修改</a><a href="javascript:;" class="remove">删除</a>')
+			$('.edit').click(function(){
+				$('#myModal').modal('show')
+				$(".username").val(addressData["username"])
+				$(".province").val(addressData["province"])
+				$(".city").val(addressData["city"])
+				$(".addressData").val(addressData["addressData"])
+				$(".phone").val(addressData["phone"])
+				$(".district").val(addressData["district"])
+				$(".detailAddress").val(addressData["detailAddress"])
+			})
 		},function(){
 			$(this).css('border-color',"#ccc");
 			$(this).children('.opa').empty();
 		})
-		
-
-		$('.edit').click(function(){
-			// $('#myModal').modal('show')
-			alert("123")
-		})
+			
 
 	}
 	return self;
 })(ML.order||{});
+
+
